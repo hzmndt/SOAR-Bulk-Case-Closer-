@@ -1,0 +1,17 @@
+identifier: Bulk-Case-Closer
+name: Bulk Case Closer
+parameters:
+- name: SOAR URL
+  type: string
+  description: Please enter valid SOAR URL (e.g., https://apj-tsc-lab1.siemplify-soar.com/)
+  is_mandatory: true
+  integration_identifier: Bulk-Case-Closer
+- name: API Key
+  type: password
+  description: Please enter valid API Key
+  is_mandatory: true
+  integration_identifier: Bulk-Case-Closer
+categories:
+- Administration
+image_path: resources/image.png
+svg_logo_path: resources/logo.svg

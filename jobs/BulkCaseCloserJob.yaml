@@ -1,0 +1,10 @@
+name: Bulk Case Closer Job
+parameters:
+    -   name: Days Backwards
+        default_value: "90"
+        type: string
+        description: 'Close cases older than this many days'
+        is_mandatory: true
+description: 'Closes stale cases in bulk'
+integration: Bulk-Case-Closer
+creator: Admin
