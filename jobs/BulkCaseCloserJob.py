@@ -1,9 +1,3 @@
-import sys
-import os
-
-# Add the parent directory (integration root) to sys.path to find vendored TIPCommon
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 import requests
 import json
 import urllib3
@@ -11,7 +5,6 @@ from datetime import datetime, timedelta
 import re
 import time
 from soar_sdk.SiemplifyJob import SiemplifyJob
-from TIPCommon import extract_action_param
 
 # Disable SSL warnings for lab environment if needed
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -90,25 +83,17 @@ def main():
     
     siemplify.LOGGER.info("Starting Bulk Case Closer Job...")
     
-    # Extract Job Parameters (Moved from integration level)
-    soar_url = extract_action_param(
-        siemplify=siemplify,
+    # Extract Job Parameters using native SiemplifyJob method
+    soar_url = siemplify.extract_job_param(
         param_name="SOAR URL",
-        input_type=str,
         print_value=True,
     )
-    api_key = extract_action_param(
-        siemplify=siemplify,
+    api_key = siemplify.extract_job_param(
         param_name="SOAR API key",
-        input_type=str,
-        print_value=False, # Don't print sensitive key
+        print_value=False,
     )
-    
-    # Extract Job Parameter (Existing)
-    days_backwards = extract_action_param(
-        siemplify=siemplify,
+    days_backwards = siemplify.extract_job_param(
         param_name="Days Backwards",
-        input_type=str,
         print_value=True,
         default_value="90",
     )
