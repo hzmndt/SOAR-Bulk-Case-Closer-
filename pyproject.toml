@@ -5,7 +5,6 @@ description = "Automates the process of finding and closing stale cases in bulk.
 requires-python = ">=3.11,<3.12"
 dependencies = [
     "requests>=2.32.3",
-    "tipcommon",
 ]
 
 [dependency-groups]
@@ -15,6 +14,7 @@ dev = [
     "pytest-json-report>=1.5.0",
     "pytest>=8.3.5",
     "soar-sdk",
+    "tipcommon",
 ]
 
 [tool.uv.sources]
