@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Add the parent directory (integration root) to sys.path to find vendored TIPCommon
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import requests
 import json
 import urllib3
