@@ -84,11 +84,21 @@ def main():
     
     siemplify.LOGGER.info("Starting Bulk Case Closer Job...")
     
-    # Extract Integration Configuration
-    soar_url = siemplify.extract_configuration_param(INTEGRATION_NAME, "SOAR URL")
-    api_key = siemplify.extract_configuration_param(INTEGRATION_NAME, "API Key")
+    # Extract Job Parameters (Moved from integration level)
+    soar_url = extract_action_param(
+        siemplify=siemplify,
+        param_name="SOAR URL",
+        input_type=str,
+        print_value=True,
+    )
+    api_key = extract_action_param(
+        siemplify=siemplify,
+        param_name="SOAR API key",
+        input_type=str,
+        print_value=False, # Don't print sensitive key
+    )
     
-    # Extract Job Parameters
+    # Extract Job Parameter (Existing)
     days_backwards = extract_action_param(
         siemplify=siemplify,
         param_name="Days Backwards",

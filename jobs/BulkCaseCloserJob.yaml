@@ -1,5 +1,15 @@
 name: Bulk Case Closer Job
 parameters:
+    -   name: SOAR URL
+        default_value: null
+        type: string
+        description: 'Please enter valid SOAR URL (e.g., https://apj-tsc-lab1.siemplify-soar.com/)'
+        is_mandatory: true
+    -   name: SOAR API key
+        default_value: null
+        type: password
+        description: 'Please enter valid API Key'
+        is_mandatory: true
     -   name: Days Backwards
         default_value: "90"
         type: string

@@ -8,7 +8,7 @@ This repository contains the source code for a custom Google SecOps (Chronicle) 
 - **Smart Retry**: Automatically handles cases that are already closed by removing them from the batch and retrying.
 
 ## Repository Structure
-- `definition.yaml`: Integration definition and parameters.
+- `definition.yaml`: Integration definition.
 - `jobs/BulkCaseCloserJob.yaml`: Job definition and parameters.
 - `jobs/BulkCaseCloserJob.py`: Python script implementing the job logic.
 - `pyproject.toml`: Project configuration and dependencies.
@@ -33,14 +33,15 @@ uv run mp build integration Bulk-Case-Closer --dst ~/Desktop/output
 3. Upload the generated ZIP file.
 
 ### 4. Configure Integration
-Provide the following parameters in the integration settings:
-- **SOAR URL**: Your SOAR instance API root (e.g., `https://apj-tsc-lab1.siemplify-soar.com/`).
-- **API Key**: A valid API key for authentication.
+Enable the integration in the Marketplace (no parameters required here).
 
 ### 5. Schedule the Job
 1. Go to **Job Scheduler**.
 2. Add a new job using the **Bulk Case Closer Job**.
-3. Configure the **Days Backwards** parameter (default is 90).
+3. Configure the following parameters directly in the job settings:
+   - **SOAR URL**: Your SOAR instance API root (e.g., `https://apj-tsc-lab1.siemplify-soar.com/`).
+   - **SOAR API key**: A valid API key for authentication.
+   - **Days Backwards**: Configure how many days backwards to look for open cases (default is 90).
 
 ## Prerequisites
 - Python 3.11
